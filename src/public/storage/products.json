@@ -1,0 +1,71 @@
+[
+    {
+        "id": "1",
+        "title": "Camiseta",
+        "description": "Camiseta de algodón",
+        "code": "TSHRT001",
+        "price": 20,
+        "status": true,
+        "stock": 10,
+        "category": "Ropa",
+        "thumbnails": [
+            "ruta/imagen1.jpg",
+            "ruta/imagen2.jpg"
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Zapatos",
+        "description": "Zapatos de cuero",
+        "code": "SHOE002",
+        "price": 80,
+        "status": true,
+        "stock": 5,
+        "category": "Calzado",
+        "thumbnails": [
+            "ruta/imagen3.jpg"
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Pantalón",
+        "description": "Pantalón de mezclilla",
+        "code": "PANT003",
+        "price": 50,
+        "status": true,
+        "stock": 8,
+        "category": "Ropa",
+        "thumbnails": [
+            "ruta/imagen4.jpg",
+            "ruta/imagen5.jpg",
+            "ruta/imagen6.jpg"
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Reloj",
+        "description": "Reloj de pulsera",
+        "code": "WATCH001",
+        "price": 120,
+        "status": true,
+        "stock": 3,
+        "category": "Accesorios",
+        "thumbnails": [
+            "ruta/imagen7.jpg"
+        ]
+    },
+    {
+        "id": "5",
+        "title": "Gafas de sol",
+        "description": "Gafas de sol estilo aviador",
+        "code": "SUNGLS001",
+        "price": 35,
+        "status": true,
+        "stock": 12,
+        "category": "Accesorios",
+        "thumbnails": [
+            "ruta/imagen8.jpg",
+            "ruta/imagen9.jpg"
+        ]
+    }
+]
