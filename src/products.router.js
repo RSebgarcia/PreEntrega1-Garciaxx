@@ -31,12 +31,10 @@ productsRouter.get('/:pid', async (req, res) => {
         const data = await fs.promises.readFile(path, 'utf-8');
         const productsCopy = JSON.parse(data);
         const product = productsCopy.find((p) => p.id === parseInt(pid));
-        console.log('product:', product)
-
         if (!product) {
             res.status(404).send({status:"Error", error:`Product with id ${pid} not found, please try another.`});
         } else {
-            res.send(product);
+            res.status(200).send({status:"success", payload:product});
         }
     } catch (error) {
         console.error(error);
