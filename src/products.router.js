@@ -17,7 +17,7 @@ productsRouter.get('/', async (req, res) => {
                 res.send({ status: "success", payload: products });
             }
         } else {
-            res.status(400).send({ status: "Error", error: "Ocurrio un error en la lectura" });
+            res.status(400).send({ status: "Error", error: "Reading error" });
         }
     } catch (error) {
         console.error("Error retrieving products:", error);
@@ -53,8 +53,8 @@ productsRouter.post('/', async (req, res) => {
 
     const { title, description, code, price, status, stock, category, thumbnails } = req.body;
     // Verificar que se proporcionen los campos obligatorios
-    if (!title || !description || !code || !status || !price || !stock || !category) {
-        return res.status(400).json({ status:"Error", error: 'Todos los campos obligatorios deben ser proporcionados.' });
+    if (!title || !description || !code || !status || !price || !stock || !category ||!thumbnails) {
+        return res.status(400).json({ status:"Error", error: 'All fields must be provided' });
     }
     // Definir los tipos requeridos para cada campo
     const fieldTypes = {
@@ -69,11 +69,11 @@ productsRouter.post('/', async (req, res) => {
     // Verificar los tipos de los campos
     const codeExist = products.find((e)=> e.code === code);
     if(codeExist){
-        res.status(400).json({status:"Error", error: `Este codigo ya esta siendo utilizado`})
+        res.status(400).json({status:"Error", error: `This code is already being used`})
     }
     for (const field in fieldTypes) {
         if (typeof req.body[field] !== fieldTypes[field]) {
-            return res.status(400).json({status:"Error", error: `El campo "${field}" debe ser de tipo "${fieldTypes[field]}".` });
+            return res.status(400).json({status:"Error", error: `Field "${field}" must be type "${fieldTypes[field]}".` });
         }
     }
     //Armado del producto
@@ -109,7 +109,7 @@ productsRouter.put('/:pid', async (req, res) => {
     const productIndex = products.findIndex(product => product.id === parseInt(pid));
     
     if (productIndex === -1) {
-        return res.status(404).json({ error: `Producto con id ${pid} no encontrado` });
+        return res.status(404).json({ error: `Product with id ${pid} not found` });
     }
 
     const product = products[productIndex];
@@ -135,7 +135,7 @@ productsRouter.delete('/:pid', async (req, res) => {
     const productIndex = products.findIndex(product => product.id === parseInt(pid));
 
     if (productIndex === -1) {
-        return res.status(404).json({ error: `Producto con id ${pid} no encontrado` });
+        return res.status(404).json({ error: `Product with id ${pid} not found` });
     }
     products.splice(productIndex,1)
 
